@@ -8,4 +8,5 @@
 이거 면접때 많이 물어보는거래요. 브라우저 작동원리와 연관있음. 니꼬쌤이 말하는 “렌더”가, 렌더트리를 말씀하시는 것 같은데 프엔은 이 렌더트리 단계를 얼마나 최적화하는가가 중요하다
             onChange={onChange1}
             // 중괄호 안에는 함수
-            
+ const [minutes, setMinutes] = React.useState(0);
+      // first item is data, second item is function to modified data
