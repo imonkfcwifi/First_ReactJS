@@ -8,40 +8,51 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const App = () => {
-      const [minutes, setMinutes] = React.useState(0);
+      const [amount, setAmout] = React.useState(0);
+      const [flipped, setFlipped] = React.useState(false);
       // first item is data, second item is function to modified data
       const onChange1 = (event) => {
-        setMinutes(event.target.value);
+        setAmout(event.target.value);
       };
-      const reset = () => setMinutes(0);
+      const reset = () => setAmout(0);
+      const onFlipp = () => {
+        reset();
+        setFlipped((current) => !current);
+      };
+      // if flipped true return false, false return true
+      // setCounter's first argument is 'current value'
       return (
         <div>
           <h1>Super Converter</h1>
           <label htmlFor="minutes">Minutes</label>
           <div>
             <input
-              value={minutes}
+              value={flipped ? amount * 60 : amount}
               id="minutes"
               placeholder="Minutes"
               type="number"
               onChange={onChange1}
+              disabled={flipped === true}
               // 중괄호 안에는 함수
             />
           </div>
-          <h4> {minutes} Minutes</h4>
+          <h4> {flipped ? amount * 60 : amount} Minutes</h4>
           <div>
             <label htmlFor="hours">Hours</label>
             <input
-              value={minutes / 60}
+              value={flipped ? amount : amount / 60}
               id="hours"
               placeholder="Hours"
               type="number"
-              disabled
+              onChange={onChange1}
+              disabled={flipped === false}
             />
           </div>
-          <h4> {minutes / 60} Hours </h4>
+          <h4> {flipped ? amount : amount / 60} Hours </h4>
           <div>
             <button onClick={reset}> Reset </button>
+            <br></br>
+            <button onClick={onFlipp}> 🔄 </button>
           </div>
         </div>
       );
@@ -49,4 +60,5 @@
     const root = document.getElementById("root");
     ReactDOM.render(<App />, root);
   </script>
+  <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css" />
 </html>
