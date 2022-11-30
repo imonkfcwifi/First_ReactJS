@@ -10,3 +10,11 @@
             // 중괄호 안에는 함수
  const [minutes, setMinutes] = React.useState(0);
       // first item is data, second item is function to modified data
+컴포넌트는 그 안에 또 다른 컴포넌트를 렌더링 할 수 있다.
+분할 정복(divide and conquer)
+- App 컴포넌트는 root div를 그려주는 역할
+- App 컴포넌트는 그 안에 다른 2개(분->시간, km->miles 컨버터)의 컴포넌트들을 렌더링
+- App 컴포넌트가 state를 가지도록 만들자
+-select는 그냥 HTML
+- {}안에는 JS를 쓸 수 있다.
+- state를 변화시킬 때, 모든게 다 새로고침 된다.
