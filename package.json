@@ -1,0 +1,23 @@
+{
+  "name": "firstreact",
+  "version": "1.0.0",
+  "description": "lets make hype",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imonkfcwifi/First_ReactJS.git"
+  },
+  "keywords": [
+    "react",
+    "js"
+  ],
+  "author": "imonkfcwifi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imonkfcwifi/First_ReactJS/issues"
+  },
+  "homepage": "https://github.com/imonkfcwifi/First_ReactJS#readme"
+}
