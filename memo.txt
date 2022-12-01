@@ -18,3 +18,12 @@
 -select는 그냥 HTML
 - {}안에는 JS를 쓸 수 있다.
 - state를 변화시킬 때, 모든게 다 새로고침 된다.
+
+         <Btn banana="Save Changes" />
+         = Btn({banana:"Save Changes"/>})
+         const A = ( props ) =>
+         첫번째 argument props에 banana가 들어감
+         prop는 object임
+
+         props.banana 말고 object shortcut을 써서 {banana}
+         shorcut : property를 object로 부터 꺼낸다

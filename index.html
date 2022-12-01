@@ -7,114 +7,34 @@
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    const TimeConveter = () => {
-      const [amount, setAmout] = React.useState(0);
-      const [flipped, setFlipped] = React.useState(false);
-      // first item is data, second item is function to modified data
-      const onChange1 = (event) => {
-        setAmout(event.target.value);
-      };
-      const reset = () => setAmout(0);
-      const onFlipp = () => {
-        reset();
-        setFlipped((current) => !current);
-      };
-      // if flipped true return false, false return true
-      // setCounter's first argument is 'current value'
+    const Btn = ({ banana, big }) => {
       return (
-        <div>
-          <label htmlFor="minutes">Minutes</label>
-          <div>
-            <input
-              value={flipped ? amount * 60 : amount}
-              id="minutes"
-              placeholder="Minutes"
-              type="number"
-              onChange={onChange1}
-              disabled={flipped === true}
-              // 중괄호 안에는 함수
-            />
-          </div>
-          <h4> {flipped ? amount * 60 : amount} Minutes</h4>
-          <div>
-            <label htmlFor="hours">Hours</label>
-            <input
-              value={flipped ? amount : amount / 60}
-              id="hours"
-              placeholder="Hours"
-              type="number"
-              onChange={onChange1}
-              disabled={flipped === false}
-            />
-          </div>
-          <h4> {flipped ? amount : amount / 60} Hours </h4>
-          <div>
-            <button onClick={reset}> Reset </button>
-            <br></br>
-            <button onClick={onFlipp}> 🔄 </button>
-          </div>
-        </div>
+        <button
+          style={{
+            backgroundColor: "tomato",
+            color: "white",
+            padding: "10p",
+            border: 0,
+            fontSize: big ? 18 : 1,
+          }}
+        >
+          {banana}
+        </button>
       );
     };
-    function KmToMiles() {
-      const [distance, setDistance] = React.useState(0);
-      const [flipped, setFlipped] = React.useState(false);
-      const onChange = (event) => {
-        setDistance(event.target.value);
-      };
-      const reset = () => setDistance(0);
-      const onFlip = () => {
-        reset();
-        setFlipped((current) => !current);
-      };
-      return (
-        <div>
-          <div>
-            <label htmlFor="km">KM</label>
-            <input
-              value={flipped ? Math.round(distance * 1.609344) : distance}
-              id="km"
-              placeholder="KM"
-              type="number"
-              onChange={onChange}
-              disabled={flipped}
-            />
-          </div>
-          <div>
-            <label htmlFor="miles">Miles</label>
-            <input
-              value={flipped ? distance : Math.round(distance * 0.621371)}
-              id="miles"
-              placeholder="Miles"
-              type="number"
-              onChange={onChange}
-              disabled={!flipped}
-            />
-          </div>
-          <button onClick={reset}>Reset</button>
-          <br></br>
-          <button onClick={onFlip}>🔄</button>
-        </div>
-      );
-    }
+    const ConfirmBtn = (props) => {
+      return <button> Confirm </button>;
+    };
     const App = () => {
-      const [index, setIndex] = React.useState("0");
-      const onSelect = (event) => {
-        setIndex(event.target.value);
-      };
       return (
         <div>
-          <h1>Super Converter</h1>
-          <select value={index} onChange={onSelect}>
-            <option value="0">Minutes to Hours</option>
-            <option value="1">Km to Miles</option>
-          </select>
-          <hr />
-          {index === "0" ? <TimeConveter /> : null}
-          {index === "1" ? <KmToMiles /> : null}
+          <Btn banana="Hi im banana argument" big={true} />
+
+          <Btn banana="Continue" big={false} />
         </div>
       );
     };
+
     // eventlistenr가 일어나면 setIndex의 state가 update, so index의 data가 update 되고 우리의 compoenet가 변화
     const root = document.getElementById("root");
     ReactDOM.render(<App />, root);
