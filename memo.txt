@@ -27,3 +27,5 @@
 
          props.banana 말고 object shortcut을 써서 {banana}
          shorcut : property를 object로 부터 꺼낸다
+         커스텀 컴포넌트 ex) <Btn/> 에 넣는 요소들은 html 요소가 아님, 그냥 props을 보내기 위한 object임 절대 eventlister가 아님 헷갈리지 말 것
+         

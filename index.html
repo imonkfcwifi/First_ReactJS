@@ -7,30 +7,35 @@
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    const Btn = ({ banana, big }) => {
+    const Btn = ({ text, onClickFunction }) => {
       return (
         <button
+          onClick={onClickFunction}
           style={{
             backgroundColor: "tomato",
             color: "white",
             padding: "10p",
             border: 0,
-            fontSize: big ? 18 : 1,
+            fontSize: 16,
           }}
         >
-          {banana}
+          {text}
         </button>
       );
     };
+
     const ConfirmBtn = (props) => {
       return <button> Confirm </button>;
     };
+    const MemorizedBtn = React.memo(Btn);
     const App = () => {
+      const [value, setValue] = React.useState("Save it");
+      const changeValue = () => setValue("Save Completed !");
       return (
         <div>
-          <Btn banana="Hi im banana argument" big={true} />
+          <MemorizedBtn text={value} onClickFunction={changeValue} />
 
-          <Btn banana="Continue" big={false} />
+          <MemorizedBtn text="Continue" />
         </div>
       );
     };
